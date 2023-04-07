@@ -23,6 +23,7 @@ class ClapTrap
 		int		getHp(void);
 		int		getEp(void);
 		int		getAd(void);
+		std::string	getName();
 		void	change_ad(unsigned int new_amount);
 
 	protected:

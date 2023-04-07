@@ -12,7 +12,7 @@ FragTrap::FragTrap() : ClapTrap(TRAP_NAME)
 	this->hp = 100;
 	this->ep = 100;
 	this->ad = 30;
-	std::cout << TRAP_NAME << ": " << TRAP_NAME << " created through default constructer" << std::endl;
+	std::cout << "\e[1;33mFragTrap\e[0m: " << "FragTrap created through default constructer" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& src): ClapTrap(src)
@@ -21,7 +21,7 @@ FragTrap::FragTrap(const FragTrap& src): ClapTrap(src)
 	this->hp = src.hp;
 	this->ep = src.ep;
 	this->ad = src.ad;
-	std::cout << TRAP_NAME << ": " << this->name << " created through copy constructer" << std::endl;
+	std::cout << "\e[1;33mFragTrap\e[0m: " << this->name << " created through copy constructer" << std::endl;
 }
 
 FragTrap::FragTrap(std::string const _name): ClapTrap(_name)
@@ -30,7 +30,7 @@ FragTrap::FragTrap(std::string const _name): ClapTrap(_name)
 	this->hp = 100;
 	this->ep = 100;
 	this->ad = 30;
-	std::cout << TRAP_NAME << ": " << _name << " created through default constructer" << std::endl;
+	std::cout << "\e[1;33mFragTrap\e[0m: " << _name << " created through default constructer" << std::endl;
 }
 
 /*
@@ -39,7 +39,7 @@ FragTrap::FragTrap(std::string const _name): ClapTrap(_name)
 
 FragTrap::~FragTrap()
 {
-	std::cout << TRAP_NAME << ": " << getName() << " has been destructed." << std::endl;
+	std::cout << "\e[1;33mFragTrap\e[0m: " << getName() << " has been destructed." << std::endl;
 }
 
 
@@ -72,7 +72,7 @@ std::string	FragTrap::getName()
 
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << this->getName() << " has requested to high five! (don't do it)" << std::endl;
+	std::cout << "\e[1;33mFragTrap\e[0m: " << this->getName() << " has requested to high five! (don't do it)" << std::endl;
 }
 
 

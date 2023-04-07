@@ -6,7 +6,7 @@
 
 Brain::Brain()
 {
-	std::cout << "Brain created through default constructer" << std::endl;
+	std::cout << "\e[1;35mBrain  :\e[0m created through default constructer" << std::endl;
 }
 
 Brain::Brain( const Brain & src )
@@ -14,7 +14,7 @@ Brain::Brain( const Brain & src )
 	for (int i = 0; i < 100; i++){
 		this->ideas[i] = src.ideas[i];
 	}
-	std::cout << "Brain created through copy constructer" << std::endl;
+	std::cout << "\e[1;35mBrain  :\e[0m created through copy constructer" << std::endl;
 }
 
 
@@ -24,7 +24,7 @@ Brain::Brain( const Brain & src )
 
 Brain::~Brain()
 {
-	std::cout << "Brain destructed" << std::endl;
+	std::cout << "\e[1;35mBrain  :\e[0m destructed" << std::endl;
 }
 
 

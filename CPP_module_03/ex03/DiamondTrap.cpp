@@ -9,11 +9,12 @@ std::string clapName = "_clap_name";
 
 DiamondTrap::DiamondTrap() : ClapTrap(TRAP_NAME + clapName)
 {
+	ClapTrap::name = TRAP_NAME + clapName;
 	this->name = TRAP_NAME;
 	this->hp = 100;
 	this->ep = 50;
 	this->ad = 30;
-	std::cout << TRAP_NAME << ": " << TRAP_NAME << " created through default constructer" << std::endl;
+	std::cout << "\e[1;36mDiamondTrap\e[0m: " << TRAP_NAME << " created through default constructer" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap& src): ClapTrap(src), ScavTrap(src), FragTrap(src)
@@ -22,16 +23,17 @@ DiamondTrap::DiamondTrap(const DiamondTrap& src): ClapTrap(src), ScavTrap(src), 
 	this->hp = src.hp;
 	this->ep = src.ep;
 	this->ad = src.ad;
-	std::cout << TRAP_NAME << ": " << this->name << " created through copy constructer" << std::endl;
+	std::cout << "\e[1;36mDiamondTrap\e[0m: " << this->name << " created through copy constructer" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string const _name): ClapTrap(_name + clapName), ScavTrap(_name), FragTrap(_name)
+DiamondTrap::DiamondTrap(std::string const _name): ClapTrap(_name + clapName)
 {
+	ClapTrap::name = _name + clapName;
 	this->name = _name;
 	this->hp = 100;
 	this->ep = 50;
 	this->ad = 30;
-	std::cout << TRAP_NAME << ": " << _name << " created through default constructer" << std::endl;
+	std::cout << "\e[1;36mDiamondTrap\e[0m: " << _name << " created through default constructer" << std::endl;
 }
 
 /*
@@ -40,7 +42,7 @@ DiamondTrap::DiamondTrap(std::string const _name): ClapTrap(_name + clapName), S
 
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << TRAP_NAME << ": " << getName() << " has been destructed." << std::endl;
+	std::cout << "\e[1;36mDiamondTrap\e[0m: " << getName() << " has been destructed." << std::endl;
 }
 
 
@@ -74,8 +76,9 @@ void	DiamondTrap::attack(const std::string& target)
 
 void	DiamondTrap::whoAmI()
 {
-	std::cout << "DiamondTrap name's : " << this->name << std::endl;
-	std::cout << "ClapTrap name's    : " << this->name + clapName << std::endl;
+	std::cout << "\e[1;36mwhoAmI\e[0m  : ";
+	std::cout << "DiamondTrap name's : " << this->getName() << std::endl;
+	std::cout << "\t  ClapTrap name's    : " << ClapTrap::name << std::endl;
 }
 
 /*

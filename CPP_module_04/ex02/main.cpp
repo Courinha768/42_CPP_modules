@@ -1,23 +1,30 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int main()
 {
-	const Animal* animals[100];
+	// const AAnimal* meta = new AAnimal();
+	const AAnimal* j = new Dog();
+	const AAnimal* i = new Cat();
 
-	for (int i = 0; i < 50; i++) {
-		animals[i] = new Cat();
-		animals[i + 50] = new Dog();
-	}
+	std::cout << std::endl;
 
-	for (int i = 0; i < 100; i++) {
-		animals[i]->makeSound();
-	}
+	// std::cout << "\e[1;37mAnimal Type: \e[0m" << meta->getType() << " " << std::endl;
+	std::cout << "\e[1;37mDog Type : \e[0m" << j->getType() << " " << std::endl;
+	std::cout << "\e[1;37mCat Type : \e[0m" << i->getType() << " " << std::endl;
 
-	for (int i = 0; i < 100; i++) {
-		delete	animals[i];
-	}
+	std::cout << std::endl;
+
+	// std::cout << "\e[1;37mAnimal Sound: \e[0m"; meta->makeSound();
+	std::cout << "\e[1;37mDog Sound : \e[0m";j->makeSound();
+	std::cout << "\e[1;37mCat Sound : \e[0m";i->makeSound();
+
+	std::cout << std::endl;
+
+	// delete meta;
+	delete j;
+	delete i;
 
 	return 0;
 }

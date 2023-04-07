@@ -12,7 +12,6 @@ void ft_tests()
 	std::cout << std::endl;
 	std::cout << "CONSTRUCTORS:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -22,8 +21,8 @@ void ft_tests()
 	// Create Materia
 	std::cout << "CREATE MATERIA:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
-	
 	AMateria	*tmp;
+	
 	AMateria	*tmp1;
 	AMateria	*tmp2;
 	AMateria	*tmp3;
@@ -37,26 +36,22 @@ void ft_tests()
 	me->equip(tmp);
 	std::cout << std::endl;
 
-
 	// Use on a new character
 	std::cout << "USE ON A NEW CHARACTER:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
 	ICharacter* bob = new Character("bob");
-
 	me->use(0, *bob);
 	me->use(1, *bob);
 	std::cout << std::endl;
-	me->use(2, *bob); // non existing slot in inventory
+	me->use(2, *bob); // Use an empty / non existing slot in inventory
 	me->use(-4, *bob);
 	me->use(18, *bob);
 	std::cout << std::endl;
-
 
 	// Deep copy character
 	std::cout << "DEEP COPY CHARACTER:" << std::endl;
 	std::cout << "-----------------------" << std::endl;
 	Character	*charles = new Character("Charles");
-
 	tmp2 = src->createMateria("cure");
 	charles->equip(tmp2);
 	tmp3 = src->createMateria("ice");
@@ -65,7 +60,6 @@ void ft_tests()
 	charles->equip(tmp);
 	Character	*charles_copy = new Character(*charles);
 	std::cout << std::endl;
-
 
 	// Deep copy vs its source character
 	std::cout << "DEEP COPY VS SOURCE:" << std::endl;

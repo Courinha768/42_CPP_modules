@@ -7,14 +7,14 @@
 Dog::Dog()
 {
 	this->type = "Dog";
-	std::cout << "Dog created through default constructer" << std::endl;
+	std::cout << "\e[1;34mDog    :\e[0m created through default constructer" << std::endl;
 	this->brain = new Brain();
 }
 
-Dog::Dog(const Dog& src) : Animal(src)
+Dog::Dog(const Dog& src) : AAnimal(src)
 {
 	this->type = src.type;
-	std::cout << "Dog created through copy constructer" << std::endl;
+	std::cout << "\e[1;34mDog    :\e[0m created through copy constructer" << std::endl;
 	this->brain = new Brain(*src.brain);
 }
 
@@ -26,7 +26,7 @@ Dog::Dog(const Dog& src) : Animal(src)
 Dog::~Dog()
 {
 	delete this->brain;
-	std::cout << "Dog destructed" << std::endl;
+	std::cout << "\e[1;34mDog    :\e[0m destructed" << std::endl;
 }
 
 

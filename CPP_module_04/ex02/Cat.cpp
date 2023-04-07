@@ -7,14 +7,14 @@
 Cat::Cat()
 {
 	this->type = "Cat";
-	std::cout << "Cat created through default constructer" << std::endl;
+	std::cout << "\e[1;31mCat    :\e[0m created through default constructer" << std::endl;
 	this->brain = new Brain();
 }
 
-Cat::Cat(const Cat& src) : Animal(src)
+Cat::Cat(const Cat& src) : AAnimal(src)
 {
 	this->type = src.type;
-	std::cout << "Cat created through copy constructer" << std::endl;
+	std::cout << "\e[1;31mCat    :\e[0m created through copy constructer" << std::endl;
 	this->brain = new Brain(*src.brain);
 }
 
@@ -26,7 +26,7 @@ Cat::Cat(const Cat& src) : Animal(src)
 Cat::~Cat()
 {
 	delete this->brain;
-	std::cout << "Cat destructed" << std::endl;
+	std::cout << "\e[1;31mCat    :\e[0m destructed" << std::endl;
 }
 
 

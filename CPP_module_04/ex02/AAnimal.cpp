@@ -1,19 +1,19 @@
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
-	this->type = "Animal";
-	std::cout << "Animal created through default constructer" << std::endl;
+	this->type = "AAnimal";
+	std::cout << "\e[1;32mAAnimal:\e[0m created through default constructer" << std::endl;
 }
 
-Animal::Animal(const Animal& src)
+AAnimal::AAnimal(const AAnimal& src)
 {
 	this->type = src.type;
-	std::cout << "Animal created through copy constructer" << std::endl;
+	std::cout << "\e[1;32mAAnimal:\e[0m created through copy constructer" << std::endl;
 }
 
 
@@ -21,9 +21,9 @@ Animal::Animal(const Animal& src)
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Animal::~Animal()
+AAnimal::~AAnimal()
 {
-	std::cout << "Animal destructed" << std::endl;
+	std::cout << "\e[1;32mAAnimal:\e[0m destructed" << std::endl;
 }
 
 
@@ -31,7 +31,7 @@ Animal::~Animal()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal&	Animal::operator=(Animal const& rhs)
+AAnimal&	AAnimal::operator=(AAnimal const& rhs)
 {
 	if (this != &rhs)
 	{
@@ -40,7 +40,7 @@ Animal&	Animal::operator=(Animal const& rhs)
 	return *this;
 }
 
-std::ostream&	operator<<(std::ostream& o, Animal const& i)
+std::ostream&	operator<<(std::ostream& o, AAnimal const& i)
 {
 	o << i.getType();
 	return o;
@@ -51,12 +51,12 @@ std::ostream&	operator<<(std::ostream& o, Animal const& i)
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound(void) const
+void	AAnimal::makeSound(void) const
 {
-	std::cout << "Animal Noises" << std::endl;
+	std::cout << "AAnimal Noises" << std::endl;
 }
 
-std::string	Animal::getType(void) const
+std::string	AAnimal::getType(void) const
 {
 	return (this->type);
 }

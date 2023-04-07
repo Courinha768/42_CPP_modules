@@ -28,8 +28,8 @@ FragTrap::FragTrap(std::string const _name): ClapTrap(_name)
 {
 	this->name = _name;
 	this->hp = 100;
-	this->ep = 50;
-	this->ad = 20;
+	this->ep = 100;
+	this->ad = 30;
 	std::cout << TRAP_NAME << ": " << _name << " created through default constructer" << std::endl;
 }
 

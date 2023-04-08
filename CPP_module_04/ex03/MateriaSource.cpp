@@ -1,5 +1,4 @@
 #include "MateriaSource.hpp"
-#include "AMateria.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -10,7 +9,7 @@ MateriaSource::MateriaSource()
 	for(int i = 0; i < 4; i++)	{
 		this->inventory[i] = 0;
 	}
-	std::cout << "MateriaSource created through default constructer" << std::endl;
+	std::cout << "\e[0;35mMateriaSource\e[0m\tcreated through default constructer" << std::endl;
 }
 
 MateriaSource::MateriaSource( const MateriaSource & src )
@@ -19,7 +18,7 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 		if (src.inventory[i])
 			this->inventory[i] = (src.inventory[i])->clone();
 	}
-	std::cout << "MateriaSource created through default constructer" << std::endl;
+	std::cout << "\e[0;35mMateriaSource\e[0m created through default constructer" << std::endl;
 }
 
 
@@ -33,7 +32,7 @@ MateriaSource::~MateriaSource()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
-	std::cout << "MateriaSource destructed" << std::endl;
+	std::cout << "\e[0;35mMateriaSource\e[0m\tdestructed" << std::endl;
 }
 
 
@@ -53,13 +52,6 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 	return *this;
 }
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -75,13 +67,13 @@ void MateriaSource::learnMateria(AMateria *m)
 
 	if (i == 4)
 	{
-		std::cout << "You can't learn more than 4 Materias" << std::endl;
+		std::cout << "\e[0;35mMateriaSource\e[0m:\t" << "You can't learn more than 4 Materias" << std::endl;
 		return ;
 	}
 
 	(this->inventory)[i] = m;
 
-	std::cout << "Materia " << m->getType() << " learned\n";
+	std::cout << "\e[0;35mMateriaSource\e[0m:\t" << "Materia " << m->getType() << " learned\n";
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
@@ -92,10 +84,10 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 		i++;
 	if (i >= 4 || !(this->inventory)[i])
 	{
-		std::cout << type << " materia does not exit\n";
+		std::cout << "\e[0;35mMateriaSource\e[0m:\t" << type << " materia does not exit\n";
 		return (NULL);
 	}
-	std::cout << "Materia " << type << " created\n";
+	std::cout << "\e[0;35mMateriaSource\e[0m:\t" << "Materia " << type << " created\n";
 	return (((this->inventory)[i])->clone());
 }
 

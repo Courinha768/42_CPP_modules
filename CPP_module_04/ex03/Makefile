@@ -4,7 +4,7 @@ SRCS			= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= c++
-CXXFLAGS		= -Wall -Wextra -Werror -I. -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -I. -std=c++98 
 
 REMOVE			= rm
 
@@ -22,5 +22,8 @@ fclean:			clean
 				@echo "\e[1mExecutable files deleted\033[0m"
 
 re:				fclean $(NAME)
+
+c:				$(NAME) clean
+				@./$(NAME)
 
 .PHONY:			all clean fclean re

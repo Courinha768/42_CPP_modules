@@ -1,6 +1,6 @@
 #include "Ice.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
+// #include "ICharacter.hpp"
+// #include "IMateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -9,13 +9,13 @@
 Ice::Ice()
 {
 	this->type = "ice";
-	std::cout << "Ice created through default constructer" << std::endl;
+	std::cout << "\e[0;34mIce\e[0m\t\tcreated through default constructer" << std::endl;
 }
 
 Ice::Ice( const Ice & src ) : AMateria(src)
 {
 	this->type = src.getType();
-	std::cout << "Ice created through copy constructer" << std::endl;
+	std::cout << "\e[0;34mIce\e[0m created through copy constructer" << std::endl;
 }
 
 
@@ -25,7 +25,7 @@ Ice::Ice( const Ice & src ) : AMateria(src)
 
 Ice::~Ice()
 {
-	std::cout << "Ice destructed" << std::endl;
+	std::cout << "\e[0;34mIce\e[0m\t\tdestructed" << std::endl;
 }
 
 
@@ -41,13 +41,6 @@ Ice &				Ice::operator=( Ice const & rhs )
 	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Ice const & i )
-{
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -66,7 +59,7 @@ Ice*	Ice::clone() const
 
 void Ice::use(ICharacter& target)
 {
-	std::cout << " shoots an ice bolt at " << target.getName() << std::endl;
+	std::cout << "\e[0;34mIce\e[0m:\t" << "* shoots an ice bolt at " << target.getName() << '*' << std::endl;
 }
 
 /*

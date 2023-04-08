@@ -9,7 +9,7 @@ Character::Character(std::string _name) : name(_name)
 	for(int i = 0; i < 4; i++)	{
 		this->inventory[i] = 0;
 	}
-	std::cout << "Character created through default constructer" << std::endl;
+	std::cout << "\e[0;33mCharacter\e[0m\tcreated through default constructer" << std::endl;
 }
 
 Character::Character( const Character & src )
@@ -19,7 +19,7 @@ Character::Character( const Character & src )
 		if ((src.inventory)[i])
 			this->inventory[i] = src.inventory[i]->clone();
 	}
-	std::cout << "Character created through copy constructer" << std::endl;
+	std::cout << "\e[0;33mCharacter\e[0m created through copy constructer" << std::endl;
 }
 
 
@@ -33,7 +33,7 @@ Character::~Character()
 		if (this->inventory[i])
 			delete this->inventory[i];
 	}
-	std::cout << "Character destructed" << std::endl;
+	std::cout << "\e[0;33mCharacter\e[0m\tdestructed" << std::endl;
 }
 
 
@@ -55,8 +55,7 @@ Character &				Character::operator=( Character const & rhs )
 
 std::ostream &			operator<<( std::ostream & o, Character const & i )
 {
-	//o << "Value = " << i.getValue();
-	(void)i;
+	o << i.getName();
 	return o;
 }
 
@@ -82,31 +81,50 @@ AMateria	*Character::getMateriaFromInventory(int i)
 void	Character::equip(AMateria* m)
 {
 	int i = 0;
+	int j = 0;
 
 	if (!m)
 	{
-		std::cout << this->getName() << " tried to equip nothing" << std::endl;
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " tried to equip nothing" << std::endl;
 		return ;
 	}
-	while ((this->inventory)[i] != 0 && i < 4)
+	while ((this->inventory)[i] && i < 4)
+	{
+		if ((this->inventory)[i] == m)
+		{
+			std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " already equiped this materia" << std::endl;
+			return ;
+		}
+		i++;
+	}
+	while ((this->inventory)[i] && i < 4)
 		i++;
 	if (i == 4)
-		std::cout << this->getName() << " can't equip any more Materia";
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " can't equip any more Materia" << std::endl;
 	else
 	{
+		while ((this->inventory)[j] && j < 4)
+		{
+			if ((this->inventory)[j] == m)
+			{
+				std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " already equiped this materia" << std::endl;
+				return ;
+			}
+			j++;
+		}
 		(this->inventory)[i] = m;
-		std::cout << this->getName() << " equipped materia " << m->getType() << " in slot " << i << "\n";
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " equipped materia " << m->getType() << " in slot " << i << "\n";
 	}
 }
 
 void	Character::unequip(int i)
 {
 	if (i < 0 || i > 3 || !(this->getMateriaFromInventory(i)))
-		std::cout << this->getName() << " tried to unequip nothing" << std::endl;
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " tried to unequip nothing" << std::endl;
 	else
 	{
 		AMateria *temp = (this->getMateriaFromInventory(i));
-		std::cout << this->getName() << " unequipped " << temp->getType() << std::endl;
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " unequipped " << temp->getType() << std::endl;
 		this->inventory[i] = 0;
 	}
 }
@@ -114,10 +132,10 @@ void	Character::unequip(int i)
 void	Character::use(int i, ICharacter& target)
 {
 	if (i < 0 || i >= 4 || !(this->getMateriaFromInventory(i)))
-		std::cout << this->getName() << " tried to use nothing " << std::endl;
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " tried to use nothing " << std::endl;
 	else
 	{
-		std::cout << this->getName();
+		std::cout << "\e[0;33mCharacter\e[0m:\t" << this->getName() << " ";
 		(this->getMateriaFromInventory(i))->use(target);
 	}
 }

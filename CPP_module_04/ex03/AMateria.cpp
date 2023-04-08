@@ -6,18 +6,18 @@
 
 AMateria::AMateria()
 {
-	std::cout << "AMateria created through default constructer" << std::endl;
+	std::cout << "\e[0;31mAMateria\e[0m\tcreated through default constructer" << std::endl;
 }
 
 
 AMateria::AMateria(std::string const& _type) : type(_type)
 {
-	std::cout << "AMateria created through default constructer" << std::endl;
+	std::cout << "\e[0;31mAMateria\e[0m created through default constructer" << std::endl;
 }
 
 AMateria::AMateria(const AMateria& src) : type(src.getType())
 {
-	std::cout << "AMateria created through copy constructer" << std::endl;
+	std::cout << "\e[0;31mAMateria\e[0m created through copy constructer" << std::endl;
 }
 
 /*
@@ -26,7 +26,7 @@ AMateria::AMateria(const AMateria& src) : type(src.getType())
 
 AMateria::~AMateria()
 {
-		std::cout << "AMateria destructed" << std::endl;
+		std::cout << "\e[0;31mAMateria\e[0m\tdestructed" << std::endl;
 }
 
 
@@ -41,12 +41,12 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-	return (this->getType());
+	return (this->type);
 }
 
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "AMateria abstractly used on " << target.getName() << std::endl;
+	std::cout << "\e[0;31mAMateria\e[0m abstractly used on " << target.getName() << std::endl;
 }
 
 /*

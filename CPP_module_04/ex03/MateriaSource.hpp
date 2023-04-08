@@ -26,6 +26,4 @@ class MateriaSource : public IMateriaSource
 
 };
 
-std::ostream &			operator<<( std::ostream & o, MateriaSource const & i );
-
 #endif /* *************************************************** MATERIASOURCE_H */

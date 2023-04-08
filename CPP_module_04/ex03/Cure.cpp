@@ -1,6 +1,6 @@
 #include "Cure.hpp"
-#include "ICharacter.hpp"
-#include "IMateriaSource.hpp"
+// #include "ICharacter.hpp"
+// #include "IMateriaSource.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
@@ -9,13 +9,13 @@
 Cure::Cure()
 {
 	this->type = "cure";
-	std::cout << "Cure created through default constructer" << std::endl;
+	std::cout << "\e[0;32mCure\e[0m\t\tcreated through default constructer" << std::endl;
 }
 
 Cure::Cure( const Cure & src ) : AMateria(src)
 {
 	this->type = src.getType();
-	std::cout << "Cure created through copy constructer" << std::endl;
+	std::cout << "\e[0;32mCure\e[0m created through copy constructer" << std::endl;
 }
 
 
@@ -25,7 +25,7 @@ Cure::Cure( const Cure & src ) : AMateria(src)
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructed" << std::endl;
+	std::cout << "\e[0;32mCure\e[0m\t\tdestructed" << std::endl;
 }
 
 
@@ -41,14 +41,6 @@ Cure &				Cure::operator=( Cure const & rhs )
 	}
 	return *this;
 }
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i )
-{
-	//o << "Value = " << i.getValue();
-	(void)i;
-	return o;
-}
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -67,7 +59,7 @@ Cure* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-	std::cout << "Heals " << target.getName() << "\'s wounds" << std::endl;
+	std::cout << "\e[0;32mCure\e[0m:\t" << "* heals " << target.getName() << "\'s wounds *" << std::endl;
 }
 
 /*
